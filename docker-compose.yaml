@@ -1,17 +1,35 @@
 version: '3'
 services:
-  core:
-    image: "zeeemughal/cent7-core:latest"
-    build: core
-    container_name: core_c
   web:
     image: web_c
     build: web
     container_name: web_c
     ports:
     - "580:80"
-    depends_on:
-      - core
+    volumes:
+      - html:/var/www/html
+  mysql:
+    image: mysql5.7
+    command: --default-authentication-plugin=mysql_native_password
+    container_name: mysql_c
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "mysql_pass"
+  adminer:
+    image: adminer
+    container_name: adminer_c
+    restart: always
+    ports:
+      - 680:8080
+  php:
+    image: php:7.4-fpm
+    container_name: php_c
+    volumes:
+      - html:/var/www/html
+
+
+  
+
   
 
 

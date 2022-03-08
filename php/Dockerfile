@@ -1,0 +1,1 @@
+FROM zeeemughal/cent7-core:latest
