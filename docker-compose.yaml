@@ -1,0 +1,16 @@
+version: '3'
+services:
+  core:
+    image: "zeeemughal/cent7-core:latest"
+    build: core
+    container_name: core_c
+  web:
+    image: web_c
+    build: web
+    container_name: web_c
+    ports:
+    - "580:80"
+  
+
+
+
