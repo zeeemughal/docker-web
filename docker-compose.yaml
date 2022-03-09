@@ -22,7 +22,7 @@ services:
     ports:
       - 680:8080
   php:
-    image: php:7.4-fpm
+    image: php:7.4-fpm-alpine3.13
     container_name: php_c
     volumes:
       - ./html:/var/www/html
