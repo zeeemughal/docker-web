@@ -7,4 +7,4 @@ COPY newdefault.conf /etc/nginx/conf.d/default.conf
 EXPOSE 22
 
 #CMD [ "sh", "-c" , "service sshd restart && sh"]
-CMD ["/usr/sbin/nginx"]
+CMD ["nginx", "-g", "daemon off;"]
