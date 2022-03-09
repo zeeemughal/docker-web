@@ -10,10 +10,12 @@ services:
       - ./html:/var/www/html
   db:
     image: mariadb
-    container_name: mysql_c
+    container_name: db_c
     restart: always
     environment:
-      MARIADB_ROOT_PASSWORD: "mysql_pass"
+      MARIADB_ROOT_PASSWORD: "1234"
+    volumes:
+      - 'dbData:/var/lib/mysql'
   adminer:
     image: adminer:latest
     container_name: adminer_c
@@ -25,7 +27,8 @@ services:
     container_name: php_c
     volumes:
       - ./html:/var/www/html
-
+volumes:
+  dbData:
 
   # comment
 
